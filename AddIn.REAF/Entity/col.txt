@@ -1,0 +1,21 @@
+﻿SELECT sysobjects.Name as tb_name, syscolumns.Name as col_name, SysTypes.Name as col_type, syscolumns.Length as col_len, isnull(sys.extended_properties.Value,syscolumns.Name) as col_memo,
+case when syscolumns.name in 
+(select primarykey=a.name
+FROM syscolumns a
+ inner join sysobjects b on a.id=b.id  and b.xtype='U' and b.name<>'dtproperties'
+ where  exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (
+ SELECT name FROM sysindexes WHERE indid in(
+  SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid
+ ))) 
+and b.name=sysobjects.Name 
+)
+ then 1 else 0 end as is_key
+ FROM sysobjects,SysTypes,syscolumns 
+LEFT JOIN sys.extended_properties ON (Syscolumns.Id = sys.extended_properties.major_id AND
+ Syscolumns.Colid = sys.extended_properties.minor_id)
+ WHERE (sysobjects.Xtype ='u' OR Sysobjects.Xtype ='v') 
+AND Sysobjects.Id = Syscolumns.Id AND SysTypes.XType = Syscolumns.XType 
+AND SysTypes.Name <> 'sysname' AND Sysobjects.Name Like '%'
+and sysobjects.Name='%TABLENAME%' 
+ ORDER By SysObjects.Name, SysColumns.colid
+

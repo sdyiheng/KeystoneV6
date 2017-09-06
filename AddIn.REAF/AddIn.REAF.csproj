@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E7B4DBC3-2DD2-483D-914F-436A0C6BDD6D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AddIn.REAF</RootNamespace>
+    <AssemblyName>AddIn.REAF</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="REAF.PlugIn.Message">
+      <HintPath>..\Lib\REAF.PlugIn.Message.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MessageBus\Controllers\Actions\BusControllerController.cs" />
+    <Compile Include="MessageBus\Controllers\Actions\BusInfoController.cs" />
+    <Compile Include="MessageBus\Controllers\Actions\BusMapContextMenuController.cs" />
+    <Compile Include="MessageBus\Controllers\Actions\BusMessageDetailController.cs" />
+    <Compile Include="MessageBus\Controllers\Actions\CopyController.cs" />
+    <Compile Include="MessageBus\Controllers\Actions\DelController.cs" />
+    <Compile Include="MessageBus\Controllers\ActionsDrawable\DragMoveElementsController.cs" />
+    <Compile Include="MessageBus\Controllers\Actions\DragMoveViewController.cs" />
+    <Compile Include="MessageBus\Controllers\Actions\PasteController.cs" />
+    <Compile Include="MessageBus\Controllers\ActionsDrawable\SelectionController.cs" />
+    <Compile Include="MessageBus\Controllers\ActionsDrawable\TipController.cs" />
+    <Compile Include="MessageBus\Controllers\Actions\ZoomMapViewController.cs" />
+    <Compile Include="MessageBus\Controllers\IDrawableAction.cs" />
+    <Compile Include="MessageBus\Controllers\MessageTreeMouseActionController.cs" />
+    <Compile Include="MessageBus\Controllers\MessageTreeViewController.cs" />
+    <Compile Include="MessageBus\frmController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageBus\frmController.Designer.cs">
+      <DependentUpon>frmController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageBus\MessageBusMapViewContext.cs" />
+    <Compile Include="MessageBus\MessageBusMapViewer.cs" />
+    <Compile Include="MessageBus\Messages\ActionChangeddMsg.cs" />
+    <Compile Include="MessageBus\Messages\BusMessageChangedMsg.cs" />
+    <Compile Include="MessageBus\Messages\RefreshMapMsg.cs" />
+    <Compile Include="MessageBus\Messages\SelectionChangedMsg.cs" />
+    <Compile Include="MyPrivateSetting.cs" />
+    <Compile Include="MessageBus\Controllers\MessageBusMapRender.cs" />
+    <Compile Include="MessageBus\Controllers\UIEventMonitorController.cs" />
+    <Compile Include="MessageBus\frmMessageBusDesigner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageBus\frmMessageBusDesigner.Designer.cs">
+      <DependentUpon>frmMessageBusDesigner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageBus\GraphControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MessageBus\MessageBusDesignerMainController.cs" />
+    <Compile Include="MessageBus\MessageBusMap.cs" />
+    <Compile Include="MessageBus\Messages\CurrentMessageBusMapMsg.cs" />
+    <Compile Include="MessageBus\Messages\FormLoadedMsg.cs" />
+    <Compile Include="MessageBus\Messages\RequestSaveMBMapViewMsg.cs" />
+    <Compile Include="MessageBus\Messages\SaveMessageBusMapMsg.cs" />
+    <Compile Include="MsgBusAddIn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="REAFAddIn.cs" />
+    <Compile Include="Tools\Tool_ExportEntity_Controller.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tools\Tool_ExportForm_Controller.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormDesign\Icons\App-kcmdf-cubes-icon-16.png" />
+    <EmbeddedResource Include="FormDesign\Icons\App-kcmdf-cubes-icon-32.png" />
+    <EmbeddedResource Include="FormDesign\Icons\application-form-icon-16.png" />
+    <EmbeddedResource Include="FormDesign\Icons\application-form-icon-32.png" />
+    <EmbeddedResource Include="FormDesign\Icons\module-puzzle-icon-16.png" />
+    <EmbeddedResource Include="FormDesign\Icons\module-puzzle-icon-32.png" />
+    <EmbeddedResource Include="MessageBus\frmController.resx">
+      <DependentUpon>frmController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageBus\frmMessageBusDesigner.resx">
+      <DependentUpon>frmMessageBusDesigner.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Keystone.AddIn.Entity\Keystone.AddIn.Entity.csproj">
+      <Project>{19425FD7-E783-4D53-B4CE-CED746A3D0F3}</Project>
+      <Name>Keystone.AddIn.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Keystone.AddIn.FormDesign\Keystone.AddIn.FormDesign.csproj">
+      <Project>{45E000C2-72B1-4EC5-A22F-C3A5442B4D0B}</Project>
+      <Name>Keystone.AddIn.FormDesign</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Keystone.AddIn.Form\Keystone.AddIn.Form.csproj">
+      <Project>{04BA690A-020F-429B-8011-1F1A8BD75726}</Project>
+      <Name>Keystone.AddIn.Form</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Keystone.AddIn.Shared\Keystone.AddIn.Shared.csproj">
+      <Project>{10384EFE-8EA9-4B0F-B448-A99769DEC6A0}</Project>
+      <Name>Keystone.AddIn.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Keystone.Common.Utility\Keystone.Common.Utility.csproj">
+      <Project>{8FBA6E6F-5361-42C4-B2DA-35E446EE4FDC}</Project>
+      <Name>Keystone.Common.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Keystone.Graph.Core\Keystone.Graph.Core.csproj">
+      <Project>{8B702A5B-B2B5-4E0F-BE62-ACBD8B0C4C14}</Project>
+      <Name>Keystone.Graph.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Keystone.Graph.Model\Keystone.Graph.Model.csproj">
+      <Project>{4D09BADE-9283-4374-B681-5B4F456034C1}</Project>
+      <Name>Keystone.Graph.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Keystone.Graph.Storage\Keystone.Graph.Storage.csproj">
+      <Project>{B9A2FB48-429A-462D-99B2-999F92C03F11}</Project>
+      <Name>Keystone.Graph.Storage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Keystone.Graph.View\Keystone.Graph.View.csproj">
+      <Project>{8CFCD4BA-53BC-439D-AAC6-96228EDA99FB}</Project>
+      <Name>Keystone.Graph.View</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Keystone.WellKnownMessage\Keystone.WellKnownMessage.csproj">
+      <Project>{B3424587-6778-48FB-9D92-62A2A6353B44}</Project>
+      <Name>Keystone.WellKnownMessage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Keystone.WellKnownWindowsMessage\Keystone.WellKnownMessage.Windows.csproj">
+      <Project>{B5353B52-5CE5-483C-AA8D-35F42F86FC0A}</Project>
+      <Name>Keystone.WellKnownMessage.Windows</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MessageBus\messagebus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MessageBus\Controllers\msg.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>if /I "$(ConfigurationName)" == "Release" Eazfuscator.NET.exe "$(TargetPath)" --msbuild-project-path "$(ProjectPath)" --msbuild-project-configuration "$(ConfigurationName)" --msbuild-project-platform "$(PlatformName)" --msbuild-solution-path "$(SolutionPath)" -n --newline-flush -v 3.3</PostBuildEvent>
+  </PropertyGroup>
+</Project>
